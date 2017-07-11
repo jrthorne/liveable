@@ -1,0 +1,67 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Supportive Town Centres{% endblock %}
+
+
+{% block heading %}Supportive Town Centres{% endblock %}
+
+{% block content %}
+	<table class="pagelayout"> 
+	<tr>
+		<td class="pageName">Problem Statement</td>
+		</tr>
+		<tr>
+		<td class="bodyText">With larger numbers of older people living longer, a significant and increasing proportion of the population will require a more supportive and responsive regional city environment. However, regional local governments have neither the resources nor the appropriate tools needed to understand and respond to the infrastructure needs of older persons. As mobile devices such as tablets and phones proliferate, there is an opportunity to use mobile apps to engage older people more effectively with their local government associations in planning the future of their regional city centres. In this project we explore the potential of mobile applications in crowdsourcing older people’s opinions as a form of community engagement.</td>
+		</tr>
+		
+		<tr>
+		<td  class="subHeader">System Architecture</td>
+		</tr>
+		<tr>
+		<td class="bodyText">
+		The system we built has the architecture shown in the figure below. We have developed an easy-to-use app (step 1) for iPads/iPhones that allows general users (including senior citizens) and council workers to enter information about (aka “audit”) objects in their built environment. The information is rich in format, including numeric scores to rate the object, text comments, photos and audio commentary. The audits are uploaded (step 2) in real-time using the mobile deive's network connection, and stored centrally (step 3) at a database server hosted at our University. The storage uses an underlying data model that enables easier aggregation, analysis, and comparison with standards. The processed data can then be mapped and visualized (step 4) to provide feedback to councils so they can easily identify issues and trends that require remedial or preemptive action. 
+		</td>
+		</tr>
+		
+		<tr>
+		<td class="subHeader">iPad/iPhone App</td>
+		</tr>
+		
+		<tr>
+		<td class="bodyText">
+		Information on the iPad/iPhone app that allows users (citizens or council workers) to input data is available 
+		<a href="/application/">here</a>
+		</td>
+		</tr>
+		
+		<tr>
+		<td class="subHeader">Analysis</td>
+		</tr>
+		
+		<tr>
+		<td class="bodyText">
+		Data contributed by users can be mapped and analysed. Example visualisation of the field trials conducted in Tweed Heads and Wollongong can be seen in the "Field Trials" tab above, and anlysis of the results can be found in the "Analysis" tab above.
+		</td>
+		</tr>
+		
+		<tr>
+		<td class="subHeader">Audits</td>	
+		</tr>
+		<tr>
+		<td class="bodyText">A user can see the data (i.e. audits) they have entered in the past by clicking on the "Audits" tab above, which requires you to enter your login id.
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+		<img src="{% static "images/appOverview.jpg" %}" alt="The application can upload text, photo, audio and score data" width="1002" height="579" />
+		</td>
+		</tr>	
+		<tr>
+		
+	</tr>
+	</table>	
+{% endblock %}
+
+

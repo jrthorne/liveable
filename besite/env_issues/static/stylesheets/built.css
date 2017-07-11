@@ -1,0 +1,624 @@
+<STYLE type="text/css">
+<!-- to make error messages stand out - the django book -->
+ul.errorlist {
+
+	margin: 0;
+
+	padding: 0;
+
+}
+
+.errorlist li {
+
+	background-color: red;
+
+	color: white;
+
+	display: block;
+
+	font-size: 10px;
+
+	margin: 0 0 3px;
+
+	padding: 4px 5px;
+
+}
+
+
+<!-- jquery slide menu -->
+.jqueryslidemenu{
+font: bold 12px Verdana;
+background: #a4c2c2;
+width: 100%;
+}
+
+.jqueryslidemenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+/*Top level list items*/
+.jqueryslidemenu ul li{
+position: relative;
+display: inline;
+float: left;
+}
+
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a{
+display: block;
+background: #a4c2c2; /*background of tabs (default state)*/
+color: black;
+padding: 8px 10px;
+border-right: 1px solid #778;
+color: #2d2b2b;
+text-decoration: none;
+}
+
+* html .jqueryslidemenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+
+.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited{
+color: black;
+}
+
+.jqueryslidemenu ul li a:hover{
+background: black; /*tab link background during hover state*/
+color: white;
+}
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{
+display: list-item;
+float: none;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{
+top: 0;
+}
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a{
+font: normal 13px Verdana;
+width: 160px; /*width of sub menus*/
+padding: 5px;
+margin: 0;
+border-top-width: 0;
+border-bottom: 1px solid gray;
+}
+
+.jqueryslidemenuz ul li ul li a:hover{ /*sub menus hover style*/
+background: #eff9ff;
+color: black;
+}
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 12px;
+right: 7px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}
+
+<!-- end jqueryslidemenu -->
+
+<!-- r171 JRT -->
+table.entryform {
+	table-layout:fixed;
+	word-wrap:break-word;
+	vertical-align:top; 
+	padding:0 5px; 
+	border:1px #778888;
+	background-color: #EEEEEE;
+	}
+	
+td.entrylabel {
+	background-color:#a4c2c2;
+	font-weight:bold; 
+	font-size:14px;
+}
+
+td.entryhelp {
+	background-color:#c6e4e4;
+	font-weight:bold; 
+	font-size:12px;
+}
+
+<!-- end r171 ->	
+	
+	
+table.updates {
+	table-layout:fixed;
+	word-wrap:break-word;
+	vertical-align:top; 
+	padding:0 5px; 
+	border:1px #778888;
+	}
+	
+th {:#778888;color:black;}
+
+
+tr.d0 td {
+background-color: white; color: black;
+}
+tr.d1 td {
+background-color: #EEEEEE; color: black;
+}
+
+td.left { text-align:center; width:10%; }
+td.right { text-align:right; width:10%; }
+td.middle { text-align:left; width:70%; }
+
+td.jleft { text-align:center; width:8%; }
+td.jright { text-align:right; width:8%; }
+td.jmiddle { text-align:left; width:50%; }
+
+/* Global Styles */
+body{
+ font:80%/1.3 Arial,sans-serif;
+ background-color: #d7f5f5;
+ color: black;
+}
+h1{
+ margin:0;
+ padding:1em;
+ font-size:30px;
+ font-weight:bold;
+}
+h1 span{
+ font-size:.667em;
+}
+h2{
+ margin:0;
+ padding:1em 1.25em;
+ font-size:1.2em;
+ font-weight:bold;
+}
+h3{
+ margin:0;
+ padding:1em 1.5em;
+ font-size:1em;
+ font-weight:bold;
+}
+td {
+	font:11px arial;
+	color:#333333;
+	}
+	
+a {
+	color: #cc0000;
+	text-decoration:none;
+	font-weight:bold;
+	}
+	
+a:hover {
+	color: #990000;
+	text-decoration:underline;
+	}
+p{
+ margin:0;
+ padding:.5em 1.5em;
+}
+
+/* end global */
+
+pre{
+ margin:.5em 1.5em;
+ padding:.3em;
+ color:#000;
+ background:#fff;
+}
+pre,pre code,pre var{
+ font:1em/1 "courier new",monospace;
+}
+pre var{
+ font-style:oblique;
+}
+pre code.markup.comment{
+ font-style:oblique;
+ color:green;
+}
+pre code.markup.doctype{
+ font-style:oblique;
+ color:teal;
+}
+pre code.markup.element-name{
+ font-weight: bold;
+ color:purple;
+}
+pre code.markup.attribute-name{
+ font-weight: bold;
+ color:black;
+}
+pre code.markup.attribute-value{
+ font-weight:normal;
+ color:blue;
+}
+
+div#header{
+	background: #AAAA77;
+	color:black;
+	position:absolute;
+	top:0;
+	left:0;
+	width:500%;
+	height:header-<length>;
+}
+div#left-sidebar{
+ background:yellow;
+ color:black;
+}
+div#right-sidebar{
+	background:#DDDDDD;
+	color:black;
+	position:absolute;
+	top:header-<length>;
+	right:0;
+	padding:10;
+	width:right-sidebar-<length>;
+	height:100%;
+}
+#footer {
+	background: #AAAA77;
+ 	color:black;
+	border-top: 1px solid #d8d8d8;
+	padding: 30px 0;
+}
+#footer p {
+	font-size: 12px;
+	line-height: 30px;
+	padding-left: 10px;
+}
+
+-->
+
+<!-- r11 from http://www.freewebsitetemplates.com/preview/zerotype/ below -->
+/* Website template by freewebsitetemplates.com */
+img {
+	border: 0;
+}
+.clearfix:after, #contents:after {
+	clear:both;
+	content:"";
+	display:block;
+	height:1%;
+	line-height:0;
+	visibility:hidden;
+}
+.btn {
+	background: url(../images/bg-button.png) no-repeat;
+	background-position: 0 -70px;
+	color: #fff;
+	display: inline-block;
+	font: 24px/60px 'OpenSans';
+	height: 60px;
+	width: 230px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+.btn:hover {
+	background-position: 0 0;
+}
+
+/*------------------------------ CONTENTS ------------------------------*/
+#contents {
+	min-height: 400px;
+	width: 880px;
+	padding: 10px;
+}
+
+#tagline h1 {
+	margin-left: 20px;
+}
+#tagline > div {
+	float: left;
+	width: 400px;
+	margin: 0 20px;
+}
+#contents .features {
+	width: 810px;
+	margin: 0 auto;
+}
+.features > div {
+	display: inline-block;
+	margin: 0 0 30px;
+}
+.features > div img {
+	float: left;
+	margin-right: 20px;
+	margin-top: 36px;
+}
+.date {
+	float: left;
+	height: 78px;
+	width: 70px;
+	margin-right: 20px;
+	border: 1px solid #d5d5d5;
+	text-align: center;
+}
+.date p {
+	margin: 12px 0 0;
+}
+.date p span {
+	display: block;
+	font-size: 30px;
+	margin-bottom: 6px;
+}
+.author {
+	color: #585858;
+	display: block;
+	font-size: 12px;
+}
+.more {
+	background-color: #727272;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	line-height: 30px;
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+}
+.more:hover, .message input[type='submit']:hover {
+	background-color: #f99600;
+	color: #000;
+}
+/** main **/
+.main {
+	float: left;
+	background: url(../images/divider.png) repeat-y right top;
+	min-height: 100px;
+	width: 620px;
+	padding-right: 24px;
+}
+.main h1, .sidebar h1 {
+	margin: 0 0 12px;
+	position: relative;
+	top: -18px;
+}
+.main h2 span {
+	display: block;
+	font-size: 12px;
+}
+/** sidebar **/
+.sidebar {
+	float: left;
+	min-height: 848px;
+	width: 216px;
+	margin-left: 20px;
+}
+.sidebar ul, .news {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.news li {
+	border-top: 1px solid #d5d5d5;
+	padding: 24px 30px 0 100px;
+	position: relative;
+}
+.news li .date {
+	float: none;
+	position: absolute;
+	left: 0;
+	top: 30px;
+}
+.news li > p span, .post > span {
+	display: block;
+	text-align: right;
+}
+.posts {
+	border-top: 1px solid #d5d5d5;
+}
+.posts li {
+	border-bottom: 1px solid #d5d5d5;
+	padding: 24px 10px 0;
+}
+.posts li p {
+	font-size: 14px;
+}
+.posts li .title {
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0 0 12px;
+}
+.posts li .title a {
+	color: #2c2c2c;
+	font-size: 16px;
+	text-decoration: none;
+}
+.post {
+	width: 785px;
+	margin: 0 auto;
+}
+.post h1 {
+	padding-top: 12px;
+}
+#about {
+	width: 740px;
+	margin: 0 auto;
+}
+#about h1, .section h1 {
+	border-bottom: 1px solid #e0e0e0;
+	padding-bottom: 12px;
+}
+.section {
+	float: left;
+	width: 390px;
+	margin-right: 50px;
+}
+.section h1 {
+	margin-bottom: 18px;
+}
+.message input[type='text'], .message textarea {
+	color: #aeaeae;
+	font-size: 13px;
+	height: 33px;
+	line-height: 33px;
+	width: 380px;
+	border: 1px solid #d5d5d5;
+	margin: 0 0 6px;
+	padding: 0 4px;
+}
+.message textarea {
+	height: 175px;
+	overflow: auto;
+	resize: none;
+}
+.message input[type='submit'] {
+	float: right;
+	background-color: #818181;
+	color: #d5d5d5;
+	cursor: pointer;
+	font: 13px/30px Arial, Helvetica, sans-serif;
+	height: 30px;
+	border: 0;
+	margin: 0;
+	padding: 0 10px;
+}
+.contact {
+	background-color: #f8f8f8;
+	width: 270px;
+	padding: 124px 60px;
+	text-align: center;
+}
+.contact p span {
+	color: #2c2c2c;
+	display: block;
+	font-size: 30px;
+	line-height: 36px;
+	padding: 18px 0;
+}
+/*------------------------------ VIDEO ------------------------------*/
+#avatarbox {
+	background: white /* url(../images/bg-avatarbox.jpg) repeat-x left top; */
+	height: 380px;
+	padding: 10px 0;
+}
+#avatarbox > div {
+	width: 800px;
+	margin: 0 auto;
+	/* moves to right padding: 0 80px; */
+}
+#avatarbox > div img {
+	float: right;
+	margin-left: 60px;
+}
+#avatarbox > div iframe {
+	float: right;
+	margin-left: 60px;
+}
+
+#avatarbox p {
+	/*font-size: 16px;*/
+	/*line-height: 24px;*/
+	margin: 0;
+}
+<!-- from http://www.freewebsitetemplates.com/preview/zerotype/ above -->
+
+
+	
+/* ID Styles */
+	
+#navigation a {
+	font:10px arial;
+	color: #336666;
+	text-decoration:none;
+	letter-spacing:.1em;
+	}
+	
+#navigation a:hover {
+	color: #993300;
+	text-decoration:underline;
+	}
+
+#padding {
+	padding:20px 5px 20px 5px;
+	}
+	
+#weekdays th {
+	font:10px arial;
+	color: #ffffff;
+	letter-spacing:.2em;
+	}
+
+#calheader td {
+	font-weight:bold;
+	}
+
+/* Class Styles */
+table.pagelayout {
+	width: 700px;
+	border: 0px;
+	cellpadding: 1px;
+	cellspacing: 0px;
+	}
+
+.logo {
+	font:18px times new roman;
+	color: #333300;
+	letter-spacing:.4em;
+	font-weight:bold;
+	}
+
+.sidebarText {
+	font:12px georgia;
+	color: #336666;
+	line-height:18px;
+	}
+	
+.bodyText {
+	font:16px arial;
+	line-height:24px;
+	color:#333333;
+	}
+	
+.pageName {
+	font:20px georgia;
+	color: #CC3300;
+	letter-spacing:.1em;
+	line-height:26px;
+	height: 100px;
+	}
+	
+.subHeader {
+	font:14px georgia;
+	color: #669999;
+	font-weight:bold;
+	line-height:20px;
+	letter-spacing:.1em;
+	width: 800px;
+	height: 80px;
+	}
+	
+.navText {
+	font:10px arial;
+	color: #333300;
+	letter-spacing:.1em;
+	}
+	
+.calendarText {
+	font:11px arial;
+	line-height:14px;
+	color:#333333;
+	}
+
+</STYLE>

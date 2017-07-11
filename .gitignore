@@ -1,0 +1,13 @@
+*.pyc
+.*.swp
+.*.swo
+*.bak
+*.sql
+*.sql.gz
+*.tar
+*.tar.gz
+/static
+local_settings.py
+local.conf
+.idea
+*.sublime-*

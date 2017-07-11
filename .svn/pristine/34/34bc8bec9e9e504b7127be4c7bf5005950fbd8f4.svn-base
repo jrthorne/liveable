@@ -1,0 +1,10 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'Tweed Heads Issues site admin' %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'The Built Environment Administration' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

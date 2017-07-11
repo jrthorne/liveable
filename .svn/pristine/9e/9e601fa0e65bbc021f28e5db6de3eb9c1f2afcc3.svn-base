@@ -1,0 +1,24 @@
+use built
+alter table `env_issues_spacestandards` 
+add type_id integer not null;
+ALTER TABLE `env_issues_spacestandards` ADD CONSTRAINT 
+`type_id_refs_id_b79f92f4` FOREIGN KEY (`type_id`) REFERENCES 
+`env_issues_spacetype` (`id`);
+
+alter table `env_issues_linkstandards` 
+add type_id integer not null;
+ALTER TABLE `env_issues_linkstandards` ADD CONSTRAINT 
+`type_id_refs_id_3490efec` FOREIGN KEY (`type_id`) REFERENCES 
+`env_issues_linktype` (`id`);
+
+alter table `env_issues_servicestandards` 
+add type_id integer not null;
+ALTER TABLE `env_issues_servicestandards` ADD CONSTRAINT 
+`type_id_refs_id_abe46580` FOREIGN KEY (`type_id`) REFERENCES 
+`env_issues_servicetype` (`id`);
+
+alter table `env_issues_accesspointstandards` 
+add type_id integer not null;
+ALTER TABLE `env_issues_accesspointstandards` ADD CONSTRAINT 
+`type_id_refs_id_f189152` FOREIGN KEY (`type_id`) REFERENCES 
+`env_issues_accesspointtype` (`id`);

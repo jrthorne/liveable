@@ -1,0 +1,9 @@
+built/besite/standards/*
+Makefile
+NOROLLOUT
+UNSW_2013
+media
+.svn
+svn-commit*tmp
+.*.swp
+.*.*.swp

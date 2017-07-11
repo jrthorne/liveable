@@ -1,0 +1,137 @@
+BEGIN;
+CREATE TABLE `env_issues_spacetype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_linktype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_accesspointtype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_servicetype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_spacestandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext,
+    `type_id` integer NOT NULL,
+    `photo` varchar(100)
+)
+;
+ALTER TABLE `env_issues_spacestandards` ADD CONSTRAINT `type_id_refs_id_b79f92f4` FOREIGN KEY (`type_id`) REFERENCES `env_issues_spacetype` (`id`);
+CREATE TABLE `env_issues_linkstandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext,
+    `type_id` integer NOT NULL,
+    `photo` varchar(100)
+)
+;
+ALTER TABLE `env_issues_linkstandards` ADD CONSTRAINT `type_id_refs_id_3490efec` FOREIGN KEY (`type_id`) REFERENCES `env_issues_linktype` (`id`);
+CREATE TABLE `env_issues_servicestandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext,
+    `type_id` integer NOT NULL,
+    `photo` varchar(100)
+)
+;
+ALTER TABLE `env_issues_servicestandards` ADD CONSTRAINT `type_id_refs_id_abe46580` FOREIGN KEY (`type_id`) REFERENCES `env_issues_servicetype` (`id`);
+CREATE TABLE `env_issues_accesspointstandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext,
+    `type_id` integer NOT NULL,
+    `photo` varchar(100)
+)
+;
+ALTER TABLE `env_issues_accesspointstandards` ADD CONSTRAINT `type_id_refs_id_f1891528` FOREIGN KEY (`type_id`) REFERENCES `env_issues_accesspointtype` (`id`);
+CREATE TABLE `env_issues_space` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `latitude` double precision NOT NULL,
+    `longitude` double precision NOT NULL,
+    `type_id` integer NOT NULL,
+    `address` varchar(200) NOT NULL,
+    `name` varchar(80),
+    `lotId` integer NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parent` integer,
+    `children` integer,
+    `peers` integer,
+    `medias` integer
+)
+;
+ALTER TABLE `env_issues_space` ADD CONSTRAINT `type_id_refs_id_b58ca7b7` FOREIGN KEY (`type_id`) REFERENCES `env_issues_spacetype` (`id`);
+CREATE TABLE `env_issues_link` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `latitude` double precision NOT NULL,
+    `longitude` double precision NOT NULL,
+    `type_id` integer NOT NULL,
+    `name` varchar(80) NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parent_id` integer NOT NULL,
+    `children` integer NOT NULL,
+    `peers` integer NOT NULL,
+    `medias` integer NOT NULL
+)
+;
+ALTER TABLE `env_issues_link` ADD CONSTRAINT `type_id_refs_id_96112c31` FOREIGN KEY (`type_id`) REFERENCES `env_issues_linktype` (`id`);
+ALTER TABLE `env_issues_link` ADD CONSTRAINT `parent_id_refs_id_b7005f56` FOREIGN KEY (`parent_id`) REFERENCES `env_issues_space` (`id`);
+CREATE TABLE `env_issues_accesspoint` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `latitude` double precision NOT NULL,
+    `longitude` double precision NOT NULL,
+    `type_id` integer NOT NULL,
+    `name` varchar(80) NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parentSpace_id` integer NOT NULL,
+    `parentLink_id` integer NOT NULL,
+    `children` integer NOT NULL,
+    `peers` integer NOT NULL,
+    `medias` integer NOT NULL
+)
+;
+ALTER TABLE `env_issues_accesspoint` ADD CONSTRAINT `type_id_refs_id_ef1dc861` FOREIGN KEY (`type_id`) REFERENCES `env_issues_accesspointtype` (`id`);
+ALTER TABLE `env_issues_accesspoint` ADD CONSTRAINT `parentSpace_id_refs_id_f311aaa3` FOREIGN KEY (`parentSpace_id`) REFERENCES `env_issues_space` (`id`);
+ALTER TABLE `env_issues_accesspoint` ADD CONSTRAINT `parentLink_id_refs_id_370e6cb8` FOREIGN KEY (`parentLink_id`) REFERENCES `env_issues_link` (`id`);
+CREATE TABLE `env_issues_service` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `latitude` double precision NOT NULL,
+    `longitude` double precision NOT NULL,
+    `type_id` integer NOT NULL,
+    `name` varchar(80) NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parentSpace_id` integer NOT NULL,
+    `parentLink_id` integer NOT NULL,
+    `parentAP_id` integer NOT NULL,
+    `children` integer NOT NULL,
+    `peers` integer NOT NULL,
+    `medias` integer NOT NULL
+)
+;
+ALTER TABLE `env_issues_service` ADD CONSTRAINT `type_id_refs_id_c152bc7b` FOREIGN KEY (`type_id`) REFERENCES `env_issues_servicetype` (`id`);
+ALTER TABLE `env_issues_service` ADD CONSTRAINT `parentSpace_id_refs_id_f582c75c` FOREIGN KEY (`parentSpace_id`) REFERENCES `env_issues_space` (`id`);
+ALTER TABLE `env_issues_service` ADD CONSTRAINT `parentAP_id_refs_id_beecbd34` FOREIGN KEY (`parentAP_id`) REFERENCES `env_issues_accesspoint` (`id`);
+ALTER TABLE `env_issues_service` ADD CONSTRAINT `parentLink_id_refs_id_4fbfe341` FOREIGN KEY (`parentLink_id`) REFERENCES `env_issues_link` (`id`);
+COMMIT;

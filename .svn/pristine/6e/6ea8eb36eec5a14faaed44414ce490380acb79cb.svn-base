@@ -1,0 +1,13 @@
+use built
+BEGIN;
+ALTER TABLE `env_issues_space` add (
+    `lotId` integer NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parent` integer NOT NULL,
+    `children` integer NOT NULL,
+    `peers` integer NOT NULL,
+    `medias` integer NOT NULL
+)
+;
+COMMIT;

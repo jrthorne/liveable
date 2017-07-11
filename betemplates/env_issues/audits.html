@@ -1,0 +1,153 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Audits made in {{ mySession.name }}{% endblock %}
+<!-- dont need the datetime picker javascript -->
+{% block javascript %}
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+<script type='text/javascript'>
+    
+    $(function(){
+    
+        var iFrames = $('iframe');
+      
+    	function iResize() {
+    	
+    		for (var i = 0, j = iFrames.length; i < j; i++) {
+    		  iFrames[i].style.height = iFrames[i].contentWindow.document.body.offsetHeight + 'px';}
+    	    }
+    	    
+        	if ($.browser.safari || $.browser.opera) { 
+        	
+        	   iFrames.load(function(){
+        	       setTimeout(iResize, 0);
+               });
+            
+        	   for (var i = 0, j = iFrames.length; i < j; i++) {
+        			var iSource = iFrames[i].src;
+        			iFrames[i].src = '';
+        			iFrames[i].src = iSource;
+               }
+               
+        	} else {
+        	   iFrames.load(function() { 
+        	       this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+        	   });
+        	}
+        
+        });
+
+</script>
+{% endblock %}
+
+{% block navigationAdd %}
+<li><a href="/built/{{ mySession.id }}/auditListReportPDF/">PDF Audit Report</a></li>
+{% endblock %}	
+
+{% block heading %}Audits made in {{ mySession.name }}{% endblock %}
+
+
+{% block content %}
+{% if sumAudits %}
+	<IMG src="{{ media_url }}{{ figFileName }}" width="750" height="375"/>  
+{% endif %}
+<H2>Click on date field to edit audit</h2>
+<!------------------------------------------------------------------------>
+<h2>Link Audits Total = {{ mySession.linkaudit_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Link</th><th>Name</th><th>Type</th><th>Score</th><th class=middle>Notes</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.linkaudit_set.all %}
+	<tr><td><a href="/built/audit/link/{{ myOB.id }}/">{{ myOB.entered }}</a></td><td>{{ myOB.owner.id }}</td><td>{{ myOB.owner.name }}</td><td>{{ myOB.owner.type }}</td>
+	<td>{{ myOB.score }}</td><td class=middle>{{ myOB.notes }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	
+	</tr>
+{% endfor %}
+</table>
+
+<!------------------------------------------------------------------------>
+<h2>Space Audits Total = {{ mySession.spaceaudit_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Space</th><th>Name</th><th>Type</th><th>Score</th><th>Notes</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.spaceaudit_set.all %}
+	<tr><td><a href="/built/audit/space/{{ myOB.id }}/">{{ myOB.entered }}</a></td><td>{{ myOB.owner.id }}</td><td>{{ myOB.owner.name }}</td><td>{{ myOB.owner.type }}</td><td>{{ myOB.score }}</td>
+	<td class=middle>{{ myOB.notes }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	</tr>
+{% endfor %}
+</table>
+
+<!------------------------------------------------------------------------>
+<h2>Service Audits Total = {{ mySession.serviceaudit_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Service</th><th>Name</th><th>Type</th><th>Score</th><th>Notes</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.serviceaudit_set.all %}
+	<tr><td><a href="/built/audit/service/{{ myOB.id }}/">{{ myOB.entered }}</a></td><td>{{ myOB.owner.id }}</td><td>{{ myOB.owner.name }}</td><td>{{ myOB.owner.type }}</td><td>{{ myOB.score }}</td>
+	<td class=middle>{{ myOB.notes }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	</tr>
+{% endfor %}
+</table>
+
+<!------------------------------------------------------------------------>
+<h2>Access Point Audits Total = {{ mySession.accesspointaudit_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Access Point</th><th>Name</th><th>Type</th><th>Score</th><th>Notes</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.accesspointaudit_set.all %}
+	<tr><td><a href="/built/audit/accesspoint/{{ myOB.id }}/">{{ myOB.entered }}</a></td><td>{{ myOB.owner.id }}</td><td>{{ myOB.owner.name }}</td><td>{{ myOB.owner.type }}</td><td>{{ myOB.score }}</td>
+	<td class=middle>{{ myOB.notes }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Registration Disclaimer{% endblock %}
+
+
+{% block heading %}Confidentiality and disclosure of information{% endblock %}
+
+{% block content %}
+
+
+By registering with Liveabiliy and using the application, you give us your permission to collect and share de-identified data that will be gathered while using this application. The data collected will be used by researchers at The University of NSW – Centre City Futures, for research and evaluation of the built environment and walk-ability.
+
+Only de-identified data will be shared with the councils participating in this project.
+
+Any information that is obtained in connection with this project and that can potentially identify you, such as your registering email address, will remain confidential and will only be disclosed with your permission, except as required by Commonwealth or State laws of Australia. This data will remain securely stored at the University of NSW.
+
+In any publication, information will be provided and or presented in such a way that you cannot be personally identified.
+
+{% endblock %}
+
+

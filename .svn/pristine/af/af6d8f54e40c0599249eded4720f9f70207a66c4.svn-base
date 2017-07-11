@@ -1,0 +1,146 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title%}Analysis Wollongong{% endblock %}
+
+{% block heading %}Analysis Wollongong{% endblock %}
+
+{% block content %}
+       
+	<table width="772" height="1823" border="0" cellpadding="2" cellspacing="0">
+		<tbody>
+			<tr>
+				<td class="pageName" colspan="2">Wollongong
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" class="bodyText">
+					<p class="style1">Wollongong was chosen as one of the regional town centre due to its involvement in the Better Cities Illawarra program and costal location.<br>
+					The Wollongong trials occurred on the Friday 11th May 2012 where another two walks took place. There were two groups, one in the morning and another in the afternoon, taken on the same route shown below.<br>
+					The two groups consisted of four people each with a total of five female and three males. The average age was higher but the volunteers were also fit and part of the community group for older people.</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<img src="{% static "images/Wollongong.png" %}" alt="Wollongong Walk and Talk route" width="654" height="833" >
+						</td>
+			</tr>
+			<tr><td align="center"><p class="style1">Wollongongs Walk and Talk route and Visualisiation of results</p></td></tr>
+			<tr>
+				<td class="subHeader">Overall</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">Wollongong had an overall rating of 51% positive with a majority of comments about spaces (39%), services (33%) and links (28%).</p></td>
+			</tr>
+			<tr>
+				<td align="center">
+					<img src="{% static "images/Results8.png" %}" alt="Wollongong Scores" width="512" height="384" border="1">
+						</td>
+			</tr>
+			<tr><td align="center"><p class="style1">Histogram of Wollongong Scores</p></td>
+			</tr>
+			<tr>
+				<tr>
+					<td align="center">
+						<img src="{% static "images/Results9.png" %}" alt="Wollongong Comments" width="512" height="384" border="1">
+							</td>
+				</tr>
+				<tr><td align="center"><p class="style1">Histogram of Wollongong Comments</p></td>
+				</tr>
+			</tr>
+			<tr>
+				<td class="subHeader">Trip, Slip amps; Fall hazards</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">A large percentage of link comments were negative, most of which pertain to the walkways.<br>
+					Of these negative comments 57% of negative comments were about trip hazards, with many trip hazards being associated with the brick used to make up the walkway. However it was noted that the material used was locally sourced which potentially explains its presence.</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<img src="{% static "images/Results11.png" %}" alt="Wollongong Scores for Link Objects" width="512" height="384" border="1">
+						</td>
+			</tr>
+			<tr><td align="center"><p class="style1">Histogram of Wollongong Scores for Link Objects</p></td>
+			</tr>
+			<tr>
+				<tr>
+					<td align="center">
+						<img src="{% static "images/Results10.png" %}" alt="Distribution of Wollongong Link Types" width="512" height="384" border="1">
+							</td>
+				</tr>
+				<tr><td align="center"><p class="style1">Distribution of Wollongong Link Types</p></td>
+				</tr>
+			</tr>
+			<tr>
+				<td align="center">
+					<img src="{% static "images/Results12.png" %}" alt="Wollongong Comments for Link Type" width="512" height="384" border="1">
+						</td>
+			</tr>
+			<tr><td align="center"><p class="style1">Histogram of Wollongong Comments for Link Types</p></td>
+			</tr>
+			<tr>
+				<tr>
+					<td align="center">
+						<img src="{% static "images/Results14.png" %}" alt="Wollongong Trip Hazard Causes" width="512" height="384" border="1">
+							</td>
+				</tr>
+				<tr><td align="center"><p class="style1">Division of Wollongong Trip Hazard Causes</p></td>
+				</tr>
+			</tr>
+			<tr>
+				<td class="subHeader">History</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">There were a surprising number of comments concerning the historical importance of building or the negativity of change to the area.<br>
+					Comments were centred on the preservation of building fa ̧cades, businesses moving away or being replaced, pubs and books stores disappearing. A possible reason for this might be that Wollongong volunteers, on average, lived in the area longer.</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<img src="{% static "images/Results15.png" %}" alt="Distribution of scores concerning History in Wollongong" width="512" height="384" border="1">
+						</td>
+			</tr>
+			<tr><td align="center"><p class="style1">Distribution of scores concerning History in Wollongong</p></td>
+			</tr>
+			<tr>
+				<td class="subHeader">Centralised services and businesses</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">In Wollongong, participants commented on the service provided by businesses quite a bit. This however is to be expected as the route took the group through the Town Centre shopping district.</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<img src="{% static "images/Results16.png" %}" alt="Distribution of scores concerning Services in Wollongong" width="512" height="384" border="1">
+						</td>
+			</tr>
+			<tr><td align="center"><p class="style1">Distribution of scores concerning Services in Wollongong</p></td>
+			</tr>
+			<tr>
+				<td class="subHeader">Access to public toilets</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">Wollongong groups commented on the lack of access to public toilets, which was tied to how the area changed, ie pubs allowed access to toilets during the evening, the disappear- ance of pubs has meant fewer after hour public toilets.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="subHeader">The Bird Cage</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">The Wollongong Crown St Bird Cage refers to the structure that stands above the western half of Crown St Mall. Participants were divided on the Bird Cage, some felt that the structure was out dated, provided no cover, made the area cluttered and was ’depressing’ in winter. In this case, there was indication that participants prioritised practicality over historic gestures.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="subHeader">Social</td>
+			</tr>
+			<tr>
+				<td class="bodyText"> <p class="style1">In Wollongong both walk groups commented on the Chessboards on Church St as being a good meeting spot. This evidenced the participants priority for community activity.</p>
+				</td>
+			</tr>
+			
+			</tr>
+
+</tbody></table>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+BEGIN;
+use built
+ALTER TABLE `env_issues_space` 
+    modify `type` enum('Residential','Building','Business','Child Care Centre',
+	'Faculty Offices', 'Park','Services','Student Acommodation', 'Theatres') NOT NULL
+;
+CREATE TABLE `env_issues_link` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `latitude` double precision NOT NULL,
+    `longitude` double precision NOT NULL,
+    `type` enum('Road','Footpath','Bridge') NOT NULL,
+    `name` varchar(80) NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parent_id` integer NOT NULL,
+    `children` integer NOT NULL,
+    `peers` integer NOT NULL,
+    `medias` integer NOT NULL
+)
+;
+ALTER TABLE `env_issues_link` ADD CONSTRAINT `parent_id_refs_id_b7005f56` FOREIGN KEY (`parent_id`) REFERENCES `env_issues_space` (`id`);
+COMMIT;

@@ -1,0 +1,6 @@
+I removed the urls for modifying audits and objects, as this interface
+was being used to post spam.
+
+--This line, and those below, will be ignored--
+
+M    besite/env_issues/urls.py

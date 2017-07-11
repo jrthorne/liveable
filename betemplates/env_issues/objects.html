@@ -1,0 +1,118 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Objects made in {{ mySession.name }}{% endblock %}
+<!-- dont need the datetime picker javascript -->
+{% block javascript %}
+{% endblock %}
+
+{% block navigationAdd %}
+{% endblock %}	
+
+{% block heading %}Audits made in {{ mySession.name }}{% endblock %}
+
+
+{% block content %}
+
+<!------------------------------------------------------------------------>
+<h2>Links Total = {{ mySession.link_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Link</th><th>Name</th><th>Type</th><th class=middle>Properties</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.link_set.all %}
+	<tr><td>{{ myOB.entered }}</td><td><a href="/built/object/link/{{ myOB.id }}/">{{ myOB.id }}</a></td><td>{{ myOB.name }}</td><td>{{ myOB.type }}</td>
+	<td class=middle>{{ myOB.properties }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	
+	</tr>
+{% endfor %}
+</table>
+
+<!------------------------------------------------------------------------>
+<h2>Spaces Total = {{ mySession.space_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Space</th><th>Name</th><th>Type</th><th>Address</th><th>Notes</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.space_set.all %}
+	<tr><td>{{ myOB.entered }}</td><td><a href="/built/object/space/{{ myOB.id }}/">{{ myOB.id }}</a></td><td>{{ myOB.name }}</td><td>{{ myOB.type }}</td><td>{{ myOB.address }}</td>
+	<td class=middle>{{ myOB.properties }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	
+	</tr>
+{% endfor %}
+</table>
+
+<!------------------------------------------------------------------------>
+<h2>Services Total = {{ mySession.service_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Service</th><th>Name</th><th>Type</th><th class=middle>Properties</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.service_set.all %}
+	<tr><td>{{ myOB.entered }}</td><td><a href="/built/object/service/{{ myOB.id }}/">{{ myOB.id }}</a></td><td>{{ myOB.name }}</td><td>{{ myOB.type }}</td>
+	<td class=middle>{{ myOB.properties }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	
+	</tr>
+{% endfor %}
+</table>
+
+<!------------------------------------------------------------------------>
+<h2>Access Points Total = {{ mySession.accesspoint_set.all.count }}</h2>
+
+<table border="1"><tr>
+<th>Date</th><th>Access Point</th><th>Name</th><th>Type</th><th class=middle>Properties</th><th>Photo</th><th>Audio</th>
+</tr>
+{% for myOB in mySession.accesspoint_set.all %}
+	<tr><td>{{ myOB.entered }}</td><td><a href="/built/object/accesspoint/{{ myOB.id }}/">{{ myOB.id }}</a></td><td>{{ myOB.name }}</td><td>{{ myOB.type }}</td>
+	<td class=middle>{{ myOB.properties }}</td>
+	{% if myOB.photo %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.photo }}">Photo</a></td>
+	{% else %}
+		<td>No Photo</td>
+	{% endif %}
+	
+	{% if myOB.audio %}
+		<td><a href="http://liveable.eng.unsw.edu.au/media/{{ myOB.audio }}">Audio</a></td>
+	{% else %}
+		<td>No Audio</td>
+	{% endif %}
+	
+	</tr>
+{% endfor %}
+</table>
+
+
+{% endblock %}

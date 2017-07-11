@@ -1,0 +1,21 @@
+use built
+BEGIN;
+CREATE TABLE `env_issues_accesspoint` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `latitude` double precision NOT NULL,
+    `longitude` double precision NOT NULL,
+    `type` enum('Stairs', 'Ramp', 'Door', 'Lift', 'Road Crossing',
+	'Bridge') NOT NULL,
+    `name` varchar(80) NOT NULL,
+    `properties` longtext NOT NULL,
+    `owner` integer NOT NULL,
+    `parentSpace_id` integer NOT NULL,
+    `parentLink_id` integer NOT NULL,
+    `children` integer NOT NULL,
+    `peers` integer NOT NULL,
+    `medias` integer NOT NULL
+)
+;
+ALTER TABLE `env_issues_accesspoint` ADD CONSTRAINT `parentSpace_id_refs_id_f311aaa3` FOREIGN KEY (`parentSpace_id`) REFERENCES `env_issues_space` (`id`);
+ALTER TABLE `env_issues_accesspoint` ADD CONSTRAINT `parentLink_id_refs_id_370e6cb8` FOREIGN KEY (`parentLink_id`) REFERENCES `env_issues_link` (`id`);
+COMMIT;

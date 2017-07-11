@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}The list of sessions{% endblock %}
+<!-- dont need the datetime picker javascript -->
+{% block javascript %}{% endblock %}
+
+
+{% block heading %}The list of sessions{% endblock %}
+
+
+{% block content %}
+
+{% if SessionList %}
+	<ul>
+	{% for mySes in SessionList %}
+		<li><a href="/built/{{ mySes.id }}/">ID: {{mySes.id}}</a> Started: {{ mySes.start }}, 
+		Name: {{ mySes.name }}, Weather: {{ mySes.weather }}</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No Sessions are available.</p>
+{% endif %}
+
+{% endblock %}

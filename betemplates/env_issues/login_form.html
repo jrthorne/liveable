@@ -1,0 +1,35 @@
+{% extends "env_issues/base.html" %}
+
+{% block title %}Login Form{% endblock %}
+
+<!-- dont need the datetime picker javascript -->
+{% block javascript %}{% endblock %}
+
+
+{% block heading %}Login Form{% endblock %}
+
+
+{% block content %}
+{% if form.errors %}
+	<P style="color: red;">
+	Please correct the error{{form.errors|pluralize }} below.
+	</p>
+{% endif %}
+
+
+<form id='sampleform' method='post' action=''>
+{% csrf_token %}
+	<table class=entryform>
+	{% for field in form %}
+		<tr>
+			<td class=entrylabel>
+			{{ field.label_tag }}{{ field.errors }}</td>
+			<td class=entryhelp>{{ field.help_text }}<BR />{{ field }}</td>
+		</tr>
+		
+    {% endfor %}
+	</table>
+	<input type='submit' value='{{ whereNext }}' />
+	</p>
+</form>
+{% endblock %}

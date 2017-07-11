@@ -1,0 +1,13 @@
+Very Good
+Good
+Neutral
+Bad
+Very Bad
+
+11.00
+15.00
+22.00
+23.00
+13.00
+
+

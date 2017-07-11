@@ -1,0 +1,38 @@
+use built;
+BEGIN;
+CREATE TABLE `env_issues_spacestandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext NOT NULL,
+	`photo` varchar(100) NOT NULL
+)
+;
+CREATE TABLE `env_issues_linkstandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext NOT NULL,
+	`photo` varchar(100) NOT NULL
+)
+;
+CREATE TABLE `env_issues_servicestandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext NOT NULL,
+	`photo` varchar(100) NOT NULL
+)
+;
+CREATE TABLE `env_issues_accesspointstandards` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `reference` varchar(255) NOT NULL,
+    `element` varchar(255) NOT NULL,
+    `criteria` varchar(255) NOT NULL,
+    `comment` longtext NOT NULL,
+	`photo` varchar(100) NOT NULL
+);
+commit;

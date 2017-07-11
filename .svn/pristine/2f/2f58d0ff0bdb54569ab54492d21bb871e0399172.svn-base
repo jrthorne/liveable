@@ -1,0 +1,58 @@
+use built;
+BEGIN;
+CREATE TABLE `env_issues_spacetype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_linktype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_accesspointtype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+CREATE TABLE `env_issues_servicetype` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(80) NOT NULL
+)
+;
+/*----------------------------------*/
+ALTER TABLE `env_issues_link` add
+    `type_id` integer NOT NULL
+;
+ALTER TABLE env_issues_link drop type;
+
+;
+ALTER TABLE `env_issues_link` ADD CONSTRAINT `type_id_refs_id_96112c31` FOREIGN KEY (`type_id`) REFERENCES `env_issues_linktype` (`id`);
+
+/*----------------------------------*/
+ALTER TABLE `env_issues_accesspoint` add
+    `type_id` integer NOT NULL
+;
+ALTER TABLE env_issues_accesspoint drop type;
+
+;
+ALTER TABLE `env_issues_accesspoint` ADD CONSTRAINT `type_id_refs_id_ef1dc861` FOREIGN KEY (`type_id`) REFERENCES `env_issues_accesspointtype` (`id`);
+
+/*----------------------------------*/
+ALTER TABLE `env_issues_service` add
+    `type_id` integer NOT NULL
+;
+ALTER TABLE env_issues_service drop type;
+
+;
+ALTER TABLE `env_issues_service` ADD CONSTRAINT `type_id_refs_id_c152bc7b` FOREIGN KEY (`type_id`) REFERENCES `env_issues_servicetype` (`id`);
+
+/* Do space last ----------------------------------*/
+ALTER TABLE `env_issues_space` add
+    `type_id` integer NOT NULL
+;
+ALTER TABLE env_issues_space drop type;
+
+ALTER TABLE `env_issues_space` ADD CONSTRAINT `type_id_refs_id_b58ca7b7` FOREIGN KEY (`type_id`) REFERENCES `env_issues_spacetype` (`id`);
+
+COMMIT;

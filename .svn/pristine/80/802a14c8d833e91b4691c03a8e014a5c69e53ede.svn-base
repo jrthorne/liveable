@@ -1,0 +1,13 @@
+{% extends "env_issues/base.html" %}
+{% block title %}Page not found{% endblock %}
+
+
+
+{% block content %}
+
+<h1>Page not found</h1>
+    
+    Sorry, but the requested page is unavailable, return 
+    <a href="http://www.liveable.unsw.edu.au/">home</a>
+	
+{% endblock %}

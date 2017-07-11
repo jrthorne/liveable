@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01/EN">
+<html lang="en">
+<!-- This loads all of the image files --->
+{% load staticfiles %}
+
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	
+<!------------------------------------------------------------------- --->	
+<link rel="stylesheet" type="text/css" href="{% static "stylesheets/built.css" %}" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+<script type="text/javascript" src="{% static "javascript/jqueryslidemenu.js" %}"></script>	
+
+<!-- ----------------------------------------------------------------- --->
+
+
+{% block javascript %}
+<script type="text/javascript" src="{% static "javascript/datetimepicker.js" %}"></script>	
+{% endblock %}
+<!------------------------------------------------------------------- --->
+</head>
+
+<body>
+<!------------------------------------------------------------------------>
+<div id="header">
+
+<table>
+  <tr>
+    <td><img src="{% static "images/liveability_logo.png" %}" alt="liveability Logo" 
+    name="liveability_logo" width="70" height="70" id="liveability_logo" /></td>
+    <td height="60" colspan="2" class="logo" nowrap="nowrap"><br />
+    Liveability: {% block heading %}{% endblock %}</td>
+  </tr>
+</table>
+
+
+</div>
+
+<br /><br /><br /><br /><br />
+
+<!----------------------------------------------------------------------
+Navigation bits
+---------------------------------------------------------------------->
+<div id="myslidemenu" class="jqueryslidemenu">
+<ul>
+	<li><a href="/">Home</a></li>
+{% block navigation %}
+	<li><a href="/application/">Mobile App</a>
+</li>
+<li><a href="/analysis/">Analysis</a>
+  	<ul>
+  	<li><a href="/SupportiveRTC_TH/">Tweed Heads</a></li>
+  	<li><a href="/SupportiveRTC_W/">Wollongong</a></li>
+  	<li><a href="/SupportiveRTC_Comparison/">Comparison</a></li>
+  	</ul>
+  </li>
+<li><a href="">Field Trials</a>
+  <ul>
+  <li><a href="/built/map/121/">Kiama</a></li>
+  <li><a href="/built/map/3/">Tweed Heads</a></li>
+  <li><a href="/built/map/24/">Wollongong 1</a></li>
+   <li><a href="/built/map/25/">Wollongong 2</a></li>
+  </ul>
+</li>
+<li><a href="/built/loginMap/">Your Audits</a></li>
+<li><a href="/built/loginObject/">Your Objects</a></li>
+<li><a href="/built/feedback/">Leave Feedback</a></li>
+<li><a href="/built/webregister/">Register</a></li>
+<li><a href="/about/">About Us</a></li>
+{% endblock %}
+{% block navigationAdd %}
+{% endblock %}	
+</ul>
+</div>
+
+<br /><br />
+
+<hr>
+
+<!------------------------------------------------------------------- --->
+<div id="contents">
+	{% block content %}{% endblock %}
+</div>
+<!------------------------------------------------------------------- --->	
+<HR>
+<div id="footer">
+	<div class="clearfix">
+	<center>
+	<table>
+	  <tr>
+	  <td><a href="www.unsw.edu.au"><img src="{% static "images/unsw_logo.png" %}" alt="unsw Logo" 
+		name="unsw_logo" width="70" height="60" id="unsw_logo" /></a>&nbsp;</td>
+	  <!-- <td><img src="{% static "images/built_env_logo.jpg" %}" alt="NSW Built Environment Logo" 
+	  name="built_env_logo" width="42" height="80" id="NSWHealth_logo" /></td> -->
+		<td> <a href="http://www.magiclamp.com.au">
+		<img src="{% static "images/magicLAMPlogoButtonInverse.jpg" %}" 
+		style="width:200px;height:60px"
+		alt="MagicLAMP Mobile Website Applications Australia</a> </td>
+		
+		<td>{% block footer %}{% endblock %}</td>
+	  </tr>
+	  <td>
+			<!-- Begin W3Counter Tracking Code -->
+			<script type="text/javascript" src="http://www.w3counter.com/tracker.js"></script>
+			<script type="text/javascript">
+			w3counter(76867);
+			</script>
+			<noscript>
+			<div><a href="http://www.w3counter.com"><img src="http://www.w3counter.com/tracker.php?id=76867" style="border: 0" alt="W3Counter" /></a></div>
+			</noscript>
+			<!-- End W3Counter Tracking Code -->
+		</td>
+		<td>
+			<script>
+			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+			
+			  ga('create', 'UA-45270214-1', 'unsw.edu.au');
+			  ga('send', 'pageview');
+			
+			</script>
+		</td>
+	  <tr>
+	  
+	  </tr>
+	</table>
+	</center>
+	</div>
+</div>
+
+</body>
+
+</html>

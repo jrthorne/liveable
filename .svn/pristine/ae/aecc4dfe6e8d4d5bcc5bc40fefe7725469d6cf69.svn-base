@@ -1,0 +1,74 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title%}The Mobile Applciation{% endblock %}
+
+{% block heading %}The Mobile Application{% endblock %}
+
+{% block content %}
+
+<table class="pagelayout"> 
+	<tr>
+		<td class="pageName">Liveability Mobile Applications - Free</td>
+	</tr>
+	<tr>
+		<td class="bodyText"><b>You can download the iPad/iPhone application from the AppStore 
+			<a href="https://itunes.apple.com/us/app/liveability/id576613272?ls=1&mt=8">here</a></b> 
+		</td>
+	</tr>
+	<tr>
+		<td class="bodyText"><b>The Andriod Tablet application is available from 
+			<a href="https://play.google.com/store/apps/details?id=com.unsw.eng.livable">google play</a></b> 
+		</td>
+	</tr>
+	<tr>
+		<td class="bodyText"><b>A YouTube video on how to use the application is available 
+			<a href="http://youtu.be/FglrwEdVhyY">here</a></b>. 
+		</td>
+	</tr>
+	<tr>
+		<td class="bodyText">
+Note that the application can be used in two modes: In <b>individual mode</b>, a user can register with their email address and then use the app. The <b>group mode</b> is expected to be used by council workers when they are doing a walk-n-talk session with a group of people in their local area. Note that the latter mode requires the council to have contacted us prior to set up the session details in our database.
+		</td>
+	</tr>
+		
+	<tr>
+		<td class="subHeader">iPhone</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="{% static "images/Iphone1.png" %}" alt="iPhone Entry Screen" width="160" height="240" border="0">
+			<img src="{% static "images/Iphone2.png" %}" alt="iPhone Map Screen" width="160" height="240" border="0">
+			<img src="{% static "images/Iphone4.png" %}" alt="iPhone Add Comment" width="160" height="240" border="0">
+			<img src="{% static "images/Iphone5.png" %}" alt="iPhone Add New" width="160" height="240" border="0">
+							</td>
+	</tr>
+	<tr><td><br></td></tr>
+	
+	<tr>
+		<td class="subHeader">iPad</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">
+			<img src="{% static "images/Ipad1.png" %}" alt="iPad Entry Screen" width="300" height="470" border="0">
+		
+			<img src="{% static "images/Ipad2.jpg" %}" alt="iPad Map Screen" width="300" height="470" border="0">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<img src="{% static "images/Ipad3.jpg" %}" alt="iPad Details Screen" width="300" height="470" border="0">
+			<img src="{% static "images/Ipad4.png" %}" alt="iPad Add Comment" width="300" height="470" border="0">
+					</td>
+	</tr>
+
+	<tr>
+		<td class="bodyText">
+		Overall research and development by University of New South Wales. Icons by 
+		<A href="http://www.glyphish.com">Glyphish</a></td>
+	</tr>
+
+</table>
+
+{% endblock %}

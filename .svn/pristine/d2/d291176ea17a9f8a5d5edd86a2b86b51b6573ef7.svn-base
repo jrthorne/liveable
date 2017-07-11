@@ -1,0 +1,29 @@
+{% extends "env_issues/base.html" %}
+{% load staticfiles %}
+
+{% block title %}Analysis{% endblock %}
+
+{% block heading %}Analysis{% endblock %}
+
+{% block content %}
+
+<table width="890" height="413" border="0" cellpadding="2" cellspacing="0">
+<tr>
+  <td class="pageName" colspan="3">Analysis</td>
+</tr>
+<tr>
+ <td width="406" class="subHeader" valign="bottom">Identifying issues</td>
+ <td width="3" rowspan="2">&nbsp;</td>
+ <td width="469" height="100" rowspan="2" align="center"><img src="{% static "images/auditComp.jpg" %}" alt="Histogram of scores" width="467" height="250" border="0" align="top" /></td>
+</tr>
+<tr>
+  <td valign="top" class="bodyText"><p class="style1">The data can be grouped by region, and scores analysed to identify problems. In this bar chart, links such as roads, streets and footpaths have a high percentage of negative audits, but conversely services score well in audits</p>			</td>
+</tr>
+<tr>
+  <td valign="top" class="bodyText"><p class="style1">Tag words were searched for in the audit text, and we used this elementary data mining method to identify issues. The histogram to the right shows that trip hazards and cracks were the audits of most concern to do with links such as roads and paths.</td>
+  <td>&nbsp;</td>
+  <td height="100" align="center"><img src="{% static "images/analysisTags.jpg" %}" alt="Histogram of tag words"  width="467" height="250" border="0" align="top"  /></td>
+</tr>
+</table>
+
+{% endblock %}
